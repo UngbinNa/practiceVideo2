@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class Exercise00 : MonoBehaviour
+{
+    private int currentHP = 10;     //클래스 멤버 변수
+    private readonly int maxHP = 100; //읽기 전용 변수
+    private const int maxMP = 100; //상수
+
+    public Exercise00()
+    {
+        //읽기 전용 변수는 변수 초기화, 생성자에서 데이터 수정 가능
+        maxHP = 200;
+
+    }
+    private void Awake()
+    {
+        int currentHP = 50; //지역 변수(함수 내부에서 선언하며, 함수가 끝나는 지점에서 데이터 소멸)
+
+        currentHP = 35;     //변수에 100 저장
+        //maxHP=200;        //readonly로 정의된 변수는 데이터 변경 불가
+        //maxMP= 200;       //const로 정의된 변수는 데이터 변경 불가
+
+        //Console View에 데이터 출력(readonly, const도 저장된 데이터 사용은 가능)
+
+        Debug.Log(currentHP);
+        Debug.Log(currentMP);
+        Debug.Log(maxMP);
+    }
+    private void Update()
+    {
+        //currentHP = 100; //지역 변수는 해당 함수 범위를 벗어나면 소멸하기 때문에 다른 함수에서 쓸 수 없음
+    }
+}
